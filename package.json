@@ -1,0 +1,73 @@
+{
+  "name": "@berrie-labs/market-infrastructure",
+  "version": "0.1.0",
+  "description": "Venue-neutral TypeScript primitives for market-data infrastructure.",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berrie-labs/berrie-market-infrastructure.git"
+  },
+  "homepage": "https://github.com/berrie-labs/berrie-market-infrastructure#readme",
+  "bugs": {
+    "url": "https://github.com/berrie-labs/berrie-market-infrastructure/issues"
+  },
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./symbols": {
+      "types": "./dist/symbols.d.ts",
+      "import": "./dist/symbols.js"
+    },
+    "./events": {
+      "types": "./dist/events.d.ts",
+      "import": "./dist/events.js"
+    },
+    "./backoff": {
+      "types": "./dist/backoff.d.ts",
+      "import": "./dist/backoff.js"
+    },
+    "./priority-queue": {
+      "types": "./dist/priority-queue.d.ts",
+      "import": "./dist/priority-queue.js"
+    },
+    "./market-data": {
+      "types": "./dist/market-data.d.ts",
+      "import": "./dist/market-data.js"
+    },
+    "./stream-state": {
+      "types": "./dist/stream-state.d.ts",
+      "import": "./dist/stream-state.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "benchmark": "npm run build --silent && node bench/priority-queue.mjs",
+    "example": "npm run build --silent && node examples/normalize-stream.mjs",
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "verify": "npm run typecheck && npm test && npm run build && npm run example"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vitest": "3.2.7"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
